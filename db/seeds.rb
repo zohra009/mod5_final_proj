@@ -23,6 +23,7 @@ restaurants = json_response["businesses"]
 
 food_list = []
 restaurants.each do |restaurant|
+
 #   puts restaurant["name"]
 #   puts restaurant["image_url"]
 #   puts restaurant["categories"].map{|category| category["title"]}
@@ -33,9 +34,11 @@ restaurants.each do |restaurant|
 #   puts restaurant["phone"]
 #   puts restaurant["price"]
 #   puts ""
-#
-food_list.push(Food.create(name: restaurant["name"], image_url: restaurant["image_url"], categories: restaurant["categories"].map {|category| category["title"]}, is_closed: restaurant["is_closed"], rating: restaurant["rating"], price: restaurant["price"], location: restaurant["location"], phone: restaurant["phone"]))
-end
+address = restaurant["location"]["address1"]+","+restaurant["location"]["city"]+" "+restaurant["location"]["zip_code"]
+categories = restaurant["categories"].map {|category| category["title"]}.join(", ")
 byebug
+food_list.push(Food.create(name: restaurant["name"], image_url: restaurant["image_url"], categories: categories, is_closed: restaurant["is_closed"], rating: restaurant["rating"], price: restaurant["price"], location: address, phone: restaurant["phone"]))
+end
+
 0
 # food1 = Food.new(name: "vegetarian ramen")

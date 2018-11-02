@@ -1,0 +1,4 @@
+/* image class with second parameter being img tag in FoodItem components */
+.img img {
+  width: 150px;
+}

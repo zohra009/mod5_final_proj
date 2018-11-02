@@ -1,0 +1,9 @@
+#categorybar {
+  width: 100%;
+  height: 55px;
+  text-align: left;
+  background-color: #cb7896;
+}
+#categorybar span{
+  margin-left: 10px;
+}
