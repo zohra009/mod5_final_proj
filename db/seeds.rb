@@ -13,7 +13,7 @@ require 'rest-client'
 require 'json'
 require 'pry'
 
-response = RestClient.get("https://api.yelp.com/v3/businesses/search?location=NYC&term=food&price=1&LIMIT=100",  {authorization: "Bearer #{ENV['yelpApiKey']}"}
+response = RestClient.get("https://api.yelp.com/v3/businesses/search?location=NYC&term=food&price=1&limit=50&offset=51",  {authorization: "Bearer #{ENV['yelpApiKey']}"}
 )
 json_response = JSON.parse(response)
 
@@ -36,7 +36,7 @@ restaurants.each do |restaurant|
 #   puts ""
 address = restaurant["location"]["address1"]+","+restaurant["location"]["city"]+" "+restaurant["location"]["zip_code"]
 categories = restaurant["categories"].map {|category| category["title"]}.join(", ")
-byebug
+# byebug
 food_list.push(Food.create(name: restaurant["name"], image_url: restaurant["image_url"], categories: categories, is_closed: restaurant["is_closed"], rating: restaurant["rating"], price: restaurant["price"], location: address, phone: restaurant["phone"]))
 end
 
