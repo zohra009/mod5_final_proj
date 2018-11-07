@@ -9,6 +9,10 @@ class CreateFoods < ActiveRecord::Migration[5.2]
       t.string :price
       t.string :location
       t.string :phone
+      t.string :longitude
+      t.string :latitude
+
+
 
       t.timestamps
     end

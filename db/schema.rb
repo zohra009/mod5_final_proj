@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2018_10_30_201151) do
     t.string "price"
     t.string "location"
     t.string "phone"
+    t.string "longitude"
+    t.string "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
