@@ -25,7 +25,7 @@ food_list = []
 
 i = 1
 loop do
-  if i < 301
+  if i < 101
     offset = i
     if i == 1
       response = RestClient.get("https://api.yelp.com/v3/businesses/search?location=NYC&term=food&price=1&limit=50",  {authorization: "Bearer #{ENV['yelpApiKey']}"})
