@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #path for keys
-
+Food.destroy_all
 
 require 'rest-client'
 require 'json'
@@ -25,7 +25,7 @@ food_list = []
 
 i = 1
 loop do
-  if i < 101
+  if i < 151
     offset = i
     if i == 1
       response = RestClient.get("https://api.yelp.com/v3/businesses/search?location=NYC&term=food&price=1&limit=50",  {authorization: "Bearer #{ENV['yelpApiKey']}"})
