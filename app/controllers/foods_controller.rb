@@ -5,6 +5,11 @@ class FoodsController <ApplicationController
     render json: @foods
   end
 
+  def show
+    @food = Food.find(params[:id])
+    render json: @food
+  end
+
   def create
     # byebug
     @food = Food.find_or_create(params[:id])
